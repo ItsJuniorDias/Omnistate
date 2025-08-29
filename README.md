@@ -74,9 +74,9 @@ npm run start
 Contributions are always welcome!
 
 1. Fork the project
-2. Create a branch (`git checkout -b minha-feature`)
-3. Commit your changes (`git commit -m 'feat: minha nova feature'`)
-4. Push (`git push origin minha-feature`)
+2. Create a branch (`git checkout -b my-feature`)
+3. Commit your changes (`git commit -m 'feat: new my-feature'`)
+4. Push (`git push origin my-feature`)
 5. Open a Pull Request 🚀
 
 ---
