@@ -1,11 +1,88 @@
-# RoyalCity
+# 📌 Nome do Projeto
 
-**The real estate sector is changing rapidly as new technologies like cryptocurrencies and AR/VR are developed, it is important to understand how these technologies and existing real estate markets work.  Developing a responsive real estate platform, a digital housing marketplace, using ReactJS.**
+Melhorias e correções Royal City 
 
-## What is RoyalCity?
+---
 
-**The proposed real estate platform - RoyalCity will serve as a digital marketplace where users can seamlessly browse, display, and purchase properties using advanced technologies such as Augmented Reality (AR) and Virtual Reality (VR), alongside Web3 capabilities. By integrating blockchain technology, the platform will ensure secure transactions and ownership verification. This innovative solution aims to revolutionize the real estate experience for buyers, sellers, and agents.**
+## 🚀 Tecnologias
 
-![alt text](public/building01.jpg)
-![alt text](public/building02.jpg)
-![alt text](public/building03.jpg)
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+
+---
+
+## 📦 Pré-requisitos
+
+Antes de rodar o projeto, certifique-se de ter instalado na sua máquina:
+
+- **Node.js** (versão LTS recomendada)
+- **npm** ou **yarn**
+
+Verifique as versões instaladas com:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+## 🔧 Instalação e execução
+
+Clone o repositório:
+
+```bash
+git clone git@github.com:ItsJuniorDias/Omnistate.git
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd Omnistate
+and
+
+cd server
+or
+cd front-end
+```
+
+Instale as dependências:
+
+```bash
+npm install
+
+```
+
+Execute o servidor de desenvolvimento:
+
+```bash
+npm run start
+
+```
+
+## 📜 Scripts disponíveis
+
+- `npm run start` → Inicia o servidor de desenvolvimento
+
+---
+
+## 🤝 Contribuição
+
+Contribuições são sempre bem-vindas!
+
+1. Faça um fork do projeto
+2. Crie uma branch (`git checkout -b minha-feature`)
+3. Commit suas alterações (`git commit -m 'feat: minha nova feature'`)
+4. Faça o push (`git push origin minha-feature`)
+5. Abra um Pull Request 🚀
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.  
+Sinta-se livre para usá-lo e modificá-lo.
+
