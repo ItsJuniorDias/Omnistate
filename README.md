@@ -1,27 +1,27 @@
-# 📌 Nome do Projeto
+# 📌 Project Name
 
-Melhorias e correções Royal City 
+Royal City Improvements and Fixes
 
 ---
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
-Este projeto foi desenvolvido com as seguintes tecnologias:
+This project was developed with the following technologies:
 
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ---
 
-## 📦 Pré-requisitos
+## 📦 Prerequisites
 
-Antes de rodar o projeto, certifique-se de ter instalado na sua máquina:
+Before running the project, make sure you have the following installed on your machine:
 
-- **Node.js** (versão LTS recomendada)
-- **npm** ou **yarn**
+- **Node.js** (LTS version recommended)
+- **npm** or **yarn**
 
-Verifique as versões instaladas com:
+Check the installed versions with:
 
 ```bash
 node -v
@@ -30,15 +30,15 @@ npm -v
 
 ---
 
-## 🔧 Instalação e execução
+## 🔧 Installation and Running
 
-Clone o repositório:
+Clone Repository:
 
 ```bash
 git clone git@github.com:ItsJuniorDias/Omnistate.git
 ```
 
-Entre na pasta do projeto:
+Enter the project folder:
 
 ```bash
 cd Omnistate
@@ -49,40 +49,39 @@ or
 cd front-end
 ```
 
-Instale as dependências:
+Install the dependencies:
 
 ```bash
 npm install
 
 ```
 
-Execute o servidor de desenvolvimento:
+Run the development server:
 
 ```bash
 npm run start
 
 ```
 
-## 📜 Scripts disponíveis
+## 📜 Available scripts
 
-- `npm run start` → Inicia o servidor de desenvolvimento
-
----
-
-## 🤝 Contribuição
-
-Contribuições são sempre bem-vindas!
-
-1. Faça um fork do projeto
-2. Crie uma branch (`git checkout -b minha-feature`)
-3. Commit suas alterações (`git commit -m 'feat: minha nova feature'`)
-4. Faça o push (`git push origin minha-feature`)
-5. Abra um Pull Request 🚀
+- `npm run start` → Starts the development server
 
 ---
 
-## 📄 Licença
+## 🤝 Contribution
 
-Este projeto está sob a licença MIT.  
-Sinta-se livre para usá-lo e modificá-lo.
+Contributions are always welcome!
 
+1. Fork the project
+2. Create a branch (`git checkout -b minha-feature`)
+3. Commit your changes (`git commit -m 'feat: minha nova feature'`)
+4. Push (`git push origin minha-feature`)
+5. Open a Pull Request 🚀
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT license.
+Feel free to use and modify it.
