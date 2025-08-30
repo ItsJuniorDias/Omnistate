@@ -2,8 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "main": "src/index.js",
   "scripts": {
-    "start": "concurrently \"node ./src/backend/server.js\" \"react-scripts start\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "prepare": "npm start",
@@ -59,6 +60,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
+    "babel-loader": "^10.0.0",
     "tailwindcss": "^3.4.17"
   }
 }
