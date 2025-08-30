@@ -7,22 +7,34 @@ const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 const axios = require("axios");
 
+const { v4: uuidv4 } = require("uuid");
+
 // Register User
-exports.registerUser = asyncErrorHandler(async (req, res, next) => {
-  const { name, email, gender, password } = req.body;
+exports.registerUser = async (req, res, next) => {
+  const { name, email, gender, password, phone } = req.body;
 
-  const user = await User.create({
-    name,
-    email,
-    gender,
-    password,
-    avatar: {
-      url: req.file.path,
-    },
-  });
+  const file = req.file;
 
-  sendToken(user, 201, res);
-});
+  try {
+    const user = await User.create({
+      userID: uuidv4(),
+      name,
+      email,
+      gender,
+      password,
+      phone,
+      avatar: {
+        url: file.path,
+      },
+    });
+
+    sendToken(user, 201, res);
+  } catch (error) {
+    res.json({
+      error,
+    });
+  }
+};
 
 // Login User
 exports.loginUser = asyncErrorHandler(async (req, res, next) => {
