@@ -1,4 +1,6 @@
 const express = require("express");
+const User = require("../models/userModel");
+
 const {
   registerUser,
   loginUser,
@@ -12,6 +14,7 @@ const {
   getSingleUser,
   updateUserRole,
   deleteUser,
+  getProfileDetails,
 } = require("../controllers/userController");
 const {
   isAuthenticatedUser,
@@ -41,6 +44,8 @@ router.route("/login").post(loginUser);
 router.route("/logout").get(logoutUser);
 
 router.route("/me").get(isAuthenticatedUser, getUserDetails);
+
+router.route("/profile").post(getProfileDetails);
 
 router.route("/password/forgot").post(forgotPassword);
 router.route("/password/reset/:token").put(resetPassword);

@@ -66,7 +66,18 @@ exports.getUserDetails = asyncErrorHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    user,
+    user: user,
+  });
+});
+
+exports.getProfileDetails = asyncErrorHandler(async (req, res) => {
+  const { user } = req.body;
+
+  const userFind = await User.findById(user.id);
+
+  res.status(200).json({
+    success: true,
+    user: userFind,
   });
 });
 
