@@ -5,13 +5,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
 
 const signUpSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
+  name: z.string().min(2, "* Name must be at least 2 characters"),
+  email: z.string().email("* Invalid email address"),
   gender: z.enum(["male", "female", "other"], {
-    errorMap: () => ({ message: "Select a valid gender" }),
+    errorMap: () => ({ message: "* Select a valid gender" }),
   }),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-  avatar: z.any().refine((files) => files?.length === 1, "Avatar is required"),
+  password: z.string().min(6, "* Password must be at least 6 characters"),
+  avatar: z
+    .any()
+    .refine((files) => files?.length === 1, "* Avatar is required"),
 });
 
 export default function SignUp() {
@@ -40,7 +42,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="pt-[120px] pb-[120px] flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="pt-[120px] pb-[64px] flex items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">
           Create your account

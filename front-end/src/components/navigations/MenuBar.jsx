@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./MenuBar.css";
+
 import { Link } from "react-router-dom";
 
 const MenuBar = () => {
   return (
     <nav className="header">
-      <div className="nav-wrapper">
+      <div className="nav-wrapper ">
         <a className="logo" href="/">
           <svg
             width="30"

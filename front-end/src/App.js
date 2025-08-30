@@ -11,6 +11,8 @@ import MarketPlace from "./components/pages/MarketPlace";
 import SignIn from "./components/pages/SignIn";
 import SignUp from "./components/pages/SignUp";
 
+import HomeLogged from "./components/pages/HomeLogged";
+
 import "./App.css";
 import SingleProperty from "./components/pages/SingleProperty";
 
@@ -20,6 +22,8 @@ function App() {
       <Router>
         <Layout>
           <Routes>
+            <Route path="/HomeLogged" element={<HomeLogged />}></Route>
+
             <Route path="/SignIn" element={<SignIn />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/About" element={<About />}></Route>
