@@ -53,7 +53,7 @@ const HomeLogged = () => {
   return (
     <>
       <div className="flex items-center justify-center min-h-screen ">
-        {isLoading && <Spinner color="border-red" />}
+        {isLoading && <Spinner color="border-gray-300" />}
 
         {!isLoading && (
           <div className="">

@@ -2,7 +2,11 @@ import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { api } from "../../service/api";
+import localforage from "localforage";
+import Spinner from "../misc/Spinner";
 
 const signUpSchema = z.object({
   name: z.string().min(2, "* Name must be at least 2 characters"),
@@ -17,6 +21,10 @@ const signUpSchema = z.object({
 });
 
 export default function SignUp() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -32,13 +40,53 @@ export default function SignUp() {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // Avatar vem como FileList -> pegar o primeiro file
     const formData = {
       ...data,
       avatar: data.avatar[0],
     };
+
     console.log("SignUp data:", formData);
+
+    setIsLoading(true);
+
+    const newFormData = new FormData();
+
+    newFormData.append("name", formData.name);
+    newFormData.append("email", formData.email);
+    newFormData.append("phone", formData.phone);
+    newFormData.append("password", formData.password);
+    newFormData.append("gender", formData.gender);
+    newFormData.append("avatar", formData.avatar);
+
+    try {
+      const response = await api.post("/api/v1/register", newFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          console.log(percentCompleted + "% uploaded");
+        },
+      });
+
+      console.log(response.data, "RESPONSE DATA");
+
+      await localforage.setItem("@token", response.data.token);
+      await localforage.setItem("@user", response.data.user);
+
+      setIsLoading(false);
+
+      setTimeout(() => {
+        return navigate("/HomeLogged");
+      }, 2000);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
   };
 
   return (
@@ -95,6 +143,32 @@ export default function SignUp() {
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">
                 {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          {/* Phone */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Phone
+            </label>
+            <Controller
+              name="phone"
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="phone"
+                  placeholder="99 99999-9999"
+                  className={`mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                    errors.phone ? "border-red-500" : "border-gray-300"
+                  }`}
+                />
+              )}
+            />
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.phone.message}
               </p>
             )}
           </div>
@@ -185,7 +259,9 @@ export default function SignUp() {
             type="submit"
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition font-semibold"
           >
-            Sign Up
+            {isLoading && <Spinner color="border-white" />}
+
+            {!isLoading && "Sign Up"}
           </button>
         </form>
 
