@@ -50,6 +50,7 @@ const SignInScreen = () => {
       console.log(response.data, "RESPONSE");
 
       await localforage.setItem("@token", response.data.token);
+      await localforage.setItem("@user", response.data.user);
 
       setTimeout(() => {
         setIsLoading(false);
@@ -130,7 +131,7 @@ const SignInScreen = () => {
               type="submit"
               className="w-full  bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition font-semibold"
             >
-              {isLoading ? <Spinner /> : <h1>SignIn</h1>}
+              {isLoading ? <Spinner color="border-white" /> : <h1>SignIn</h1>}
             </button>
           </form>
 
