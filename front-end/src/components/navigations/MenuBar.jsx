@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./MenuBar.css";
+import { Link } from "react-router-dom";
 
 const MenuBar = () => {
   return (
@@ -35,7 +36,12 @@ const MenuBar = () => {
             <a href="/FAQ">FAQ</a>
           </li>
           <li>
-            <button className="button">Connect</button>
+            <Link
+              to="/SignIn"
+              className="w-[96px] bg-[#006EFF] rounded-lg hover:bg-red-600"
+            >
+              <h1 className=" text-white hover:text-[#006EFF]">SignIn</h1>
+            </Link>
           </li>
         </ul>
       </div>

@@ -1,11 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Layout from "./layout/Layout";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import FAQ from "./components/pages/FAQ";
 import NotFound from "./components/pages/NotFound";
 import MarketPlace from "./components/pages/MarketPlace";
+
+import SignIn from "./components/pages/SignIn";
+import SignUp from "./components/pages/SignUp";
 
 import "./App.css";
 import SingleProperty from "./components/pages/SingleProperty";
@@ -16,6 +20,8 @@ function App() {
       <Router>
         <Layout>
           <Routes>
+            <Route path="/SignIn" element={<SignIn />}></Route>
+            <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/About" element={<About />}></Route>
             <Route path="/FAQ" element={<FAQ />}></Route>
             <Route path="/MarketPlace" element={<MarketPlace />}></Route>

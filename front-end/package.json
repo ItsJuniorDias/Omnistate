@@ -2,7 +2,15 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "concurrently \"node ./src/backend/server.js\" \"react-scripts start\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "prepare": "npm start",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
     "@sendgrid/mail": "^8.1.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -20,19 +28,14 @@
     "paytmchecksum": "^1.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.62.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "request": "^2.88.2",
     "sqlite3": "^5.1.7",
     "validator": "^13.12.0",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "concurrently \"node ./src/backend/server.js\" \"react-scripts start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "prepare": "npm start",
-    "eject": "react-scripts eject"
+    "web-vitals": "^2.1.4",
+    "zod": "^4.1.5"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +55,8 @@
       "last 1 safari version"
     ]
   },
-   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.1.1"
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "tailwindcss": "^3.4.17"
   }
 }
