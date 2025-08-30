@@ -2,12 +2,17 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-// const fileUpload = require("express-fileupload");
-const userRoute = require("./routes/userRoute");
 
-const multer = require("multer");
+const cors = require("cors");
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000", // your frontend URL
+    credentials: true, // if you want to send cookies/auth headers
+  })
+);
 
 // config
 if (process.env.NODE_ENV !== "production") {
@@ -15,9 +20,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 app.use(express.json());
 app.use(cookieParser());
-
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(fileUpload());
+app.use(cors());
 
 const user = require("./routes/userRoute");
 const product = require("./routes/productRoute");
