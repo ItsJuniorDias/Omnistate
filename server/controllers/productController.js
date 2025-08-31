@@ -3,6 +3,7 @@ const asyncErrorHandler = require("../middlewares/helpers/asyncErrorHandler");
 const SearchFeatures = require("../utils/searchFeatures");
 const ErrorHandler = require("../utils/errorHandler");
 const cloudinary = require("cloudinary");
+const Property = require("../models/Property");
 
 // Get All Products
 exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
@@ -42,6 +43,15 @@ exports.getProducts = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
+exports.getProperty = asyncErrorHandler(async (req, res, next) => {
+  const property = await Property.find();
+
+  res.status(200).json({
+    success: true,
+    data: property,
+  });
+});
+
 // Get Product Details
 exports.getProductDetails = asyncErrorHandler(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
@@ -64,6 +74,33 @@ exports.getAdminProducts = asyncErrorHandler(async (req, res, next) => {
     success: true,
     products,
   });
+});
+
+// Create Property
+exports.createProperty = asyncErrorHandler(async (req, res, next) => {
+  const { name, images, price, profit, returns, investors } = req.body;
+
+  try {
+    const property = await Property.create({
+      name,
+      images,
+      price,
+      profit,
+      returns,
+      investors,
+    });
+
+    res.status(200).json({
+      success: true,
+      data: {
+        property,
+      },
+    });
+  } catch (error) {
+    res.json({
+      error,
+    });
+  }
 });
 
 // Create Product ---ADMIN
