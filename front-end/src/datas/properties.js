@@ -3,12 +3,12 @@ import building2 from "../images/building2.jpg";
 import building3 from "../images/building3.jpg";
 import building4 from "../images/building4.jpg";
 
-const propertiies = [
+const properties = [
   {
     id: 1,
     images: [building1, building3, building4, building2],
     name: "Building",
-    price: "30000",
+    price: "300",
     profit: 15.6,
     returns: 10.21,
     investors: 534,
@@ -33,4 +33,4 @@ const propertiies = [
   // }
 ];
 
-export default propertiies;
+export default properties;

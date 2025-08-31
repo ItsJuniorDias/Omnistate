@@ -13,14 +13,16 @@ import {
 
 import NotFound from "../pages/NotFound";
 import { api } from "../../service/api.js";
+import Spinner from "../misc/Spinner.jsx";
 
 export default function SingleProperty() {
   const [property, setProperty] = useState({});
   const { id } = useParams();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  const stripe = useStripe();
   const elements = useElements();
 
   console.log(elements, "ELEMENTS");
@@ -33,9 +35,11 @@ export default function SingleProperty() {
   const handlePayment = async () => {
     console.log(property, "PROPERTY");
 
+    setIsLoading(true);
+
     try {
       const response = await api.post("/api/v1/stripe", {
-        amount: property.price,
+        amount: `${property.price}00`,
       });
 
       const { client_secret } = response.data;
@@ -45,17 +49,6 @@ export default function SingleProperty() {
       navigate({
         pathname: `/Checkout/${client_secret}`,
       });
-
-      // const { error } = await stripe.confirmPayment({
-      //   elements,
-      //   redirect: "always",
-      //   clientSecret: client_secret,
-      //   confirmParams: {
-      //     return_url: "https://example.com/order/123/complete",
-      //   },
-      // });
-
-      // console.log(error, "RESPONSE");
     } catch (error) {
       console.log(error);
     }
@@ -86,7 +79,9 @@ export default function SingleProperty() {
         </div>
 
         <button onClick={handlePayment} className="buy-button">
-          Buy your NFT
+          {isLoading && <Spinner color="border-white" />}
+
+          {!isLoading && "Buy your NFT"}
         </button>
       </div>
     </section>

@@ -1,10 +1,10 @@
 :root {
-  --blue: #006EFF;
-  --darkBlue: #12417E;
+  --blue: #006eff;
+  --darkBlue: #12417e;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .center {
@@ -12,11 +12,14 @@
   margin-bottom: 72px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
-.container, .adcontainer {
+.container,
+.adcontainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,7 +34,7 @@ h1, h2, h3 {
   margin-right: 20px;
   text-align: left;
   font-size: 1.3rem;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, .1);
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -71,6 +74,7 @@ h1, h2, h3 {
 
 .ad .container {
   padding-top: 64px;
+  width: 100%;
 }
 
 .fa-checker {
@@ -93,7 +97,7 @@ h1, h2, h3 {
   color: black;
 }
 
-.adcontent:nth-child(4) .fa-checker{
+.adcontent:nth-child(4) .fa-checker {
   color: white;
   background-color: var(--blue);
 }
@@ -110,12 +114,14 @@ h1, h2, h3 {
   align-items: flex-start;
 }
 
-.how-right, .how-left{
+.how-right,
+.how-left {
   width: 100%;
   padding: 16px 32px;
 }
 
-.how-left h3, .how-right h3 {
+.how-left h3,
+.how-right h3 {
   text-align: left;
 }
 
@@ -165,12 +171,14 @@ h1, h2, h3 {
     flex-direction: row;
   }
 
-  .how-left, .how-right {
+  .how-left,
+  .how-right {
     width: 150px;
     padding: 0;
   }
 
-  .how-left, .how-left h3 {
+  .how-left,
+  .how-left h3 {
     text-align: right;
   }
 

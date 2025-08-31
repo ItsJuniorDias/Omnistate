@@ -57,8 +57,8 @@ export default function CheckoutScreen(props) {
 
         console.log(paymentIntent, "PAYMENT INTENT");
 
-        if (paymentIntent.stauts === "succeeded") {
-          alert("Pagamento realizado com sucesso!");
+        if (paymentIntent.status === "succeeded") {
+          alert("Payment successful!");
         }
       }
 
