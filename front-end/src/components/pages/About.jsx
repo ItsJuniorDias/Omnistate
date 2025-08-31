@@ -10,7 +10,7 @@ const About = () => {
   });
   return (
     <React.Fragment>
-      <section className="about">
+      <section className="about pt-[40px]">
         <h1 className="page-heading">About Us</h1>
         <div className="about-top">
           <div className="about-top-1">

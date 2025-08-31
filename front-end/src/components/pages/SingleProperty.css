@@ -1,6 +1,6 @@
 :root {
-  --blue: #006EFF;
-  --darkBlue: #12417E;
+  --blue: #006eff;
+  --darkBlue: #12417e;
 }
 
 .carousel-container {
@@ -40,7 +40,7 @@
   padding: 32px;
   border: 1px solid var(--blue);
   border-radius: 8px;
-  box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, .1);
+  box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.1);
 }
 
 .num {
@@ -55,11 +55,15 @@
   margin: 0;
 }
 
-.info1, .info2, .info3 {
-  margin: 0 5%;
+.info1,
+.info2,
+.info3 {
+  margin: 0 10%;
+  gap: 8;
 }
 
-.info1, .info2 {
+.info1,
+.info2 {
   border-bottom: 2px solid lightgray;
 }
 
@@ -75,7 +79,6 @@
   cursor: pointer;
 }
 
-
 @media (min-width: 48em) {
   .selected-image {
     width: 65vw;
@@ -85,7 +88,6 @@
 
   .carousel-container {
     display: flex;
-
   }
 
   .carousel-images {
@@ -110,7 +112,9 @@
     display: flex;
   }
 
-  .info1, .info2, .info3 {
+  .info1,
+  .info2,
+  .info3 {
     flex: 1;
     border-bottom: none;
     margin: 0;
@@ -119,7 +123,8 @@
     text-align: center;
   }
 
-  .info2, .info3 {
+  .info2,
+  .info3 {
     border-left: 2px solid lightgray;
     padding-left: 8px;
   }
