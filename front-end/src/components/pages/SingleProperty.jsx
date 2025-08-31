@@ -2,39 +2,30 @@ import { useEffect, useState } from "react";
 import ImageCarousel from "../misc/ImageCarousel";
 import "./SingleProperty.css";
 import { useNavigate, useParams } from "react-router-dom";
-import properties from "../../datas/properties.js";
-
-import {
-  CardElement,
-  useStripe,
-  useElements,
-  PaymentElement,
-} from "@stripe/react-stripe-js";
 
 import NotFound from "../pages/NotFound";
 import { api } from "../../service/api.js";
 import Spinner from "../misc/Spinner.jsx";
+import { usePropertyStore } from "../../store/useProperty";
 
 export default function SingleProperty() {
   const [property, setProperty] = useState({});
+
+  const { data } = usePropertyStore();
+
   const { id } = useParams();
 
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const elements = useElements();
-
-  console.log(elements, "ELEMENTS");
-
   useEffect(() => {
-    setProperty(properties.find((p) => p.id == id));
+    setProperty(data.find((p) => p.id == id));
+
     window.scrollTo(0, 0);
-  }, [property, id]);
+  }, [data, id]);
 
   const handlePayment = async () => {
-    console.log(property, "PROPERTY");
-
     setIsLoading(true);
 
     try {
@@ -43,8 +34,6 @@ export default function SingleProperty() {
       });
 
       const { client_secret } = response.data;
-
-      console.log(client_secret, "CLIENT SECRET");
 
       navigate({
         pathname: `/Checkout/${client_secret}`,

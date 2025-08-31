@@ -1,23 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+
+import { api } from "../../service/api";
+
 import "./Home.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import Header from "../misc/Header";
 import Gift from "../misc/Gift";
 import Property from "../misc/Property";
 import QnA from "../misc/QnA";
+
 import vrmobile from "../../images/vrmobile.png";
 import connect_wallet from "../../images/connect_wallet.png";
 import home1 from "../../images/home.jpg";
 import trading from "../../images/trading.jpg";
 import sellhome from "../../images/sellhome.jpg";
+
 import faq from "../../datas/faqs/faq";
-import properties from "../../datas/properties";
-import { useEffect } from "react";
+
+import { usePropertyStore } from "../../store/useProperty";
 
 const Home = () => {
+  const { fetch, data } = usePropertyStore();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+
+    const handleProperty = async () => {
+      try {
+        const response = await api.get("/api/v1/property/all");
+
+        fetch(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    handleProperty();
+  }, [fetch]);
+
   return (
     <React.Fragment>
       <Header />
@@ -127,17 +149,20 @@ const Home = () => {
           style={{ width: "550px", height: "350px" }}
         />
       </div>
-      <div className="pr-header">
+
+      <div className="flex flex-row justify-between px-20 mb-[32px]">
         <h3 id="properties">Among our properties already financed</h3>
         <h3 className="cl-blue">
           <a href="/MarketPlace">View All</a>
         </h3>
       </div>
-      <div className="properties">
-        {properties.map((property) => (
+
+      <div className="grid grid-cols-1 px-20 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-[64px]">
+        {data.map((property) => (
           <Property property={property} />
         ))}
       </div>
+
       <h3>Your most frequently asked questions</h3>
       <p className="center">
         Based on your feedback, we try to answer your questions and

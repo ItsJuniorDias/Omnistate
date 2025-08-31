@@ -1,14 +1,27 @@
 import React from "react";
 import "./About.css";
 import Property from "../misc/Property";
-import properties from "../../datas/properties";
-// import comingSoon from "../../images/coming-soon-p.png"
+
 import { useEffect } from "react";
+import { usePropertyStore } from "../../store/useProperty";
+import { api } from "../../service/api";
 
 const MarketPlace = () => {
+  const { fetch, data } = usePropertyStore();
+
   useEffect(() => {
+    const handleFetch = async () => {
+      const response = await api.get("/api/v1/property/all");
+
+      console.log(response, "RESPONSE");
+
+      fetch(response.data.data);
+    };
+
+    handleFetch();
+
     window.scrollTo(0, 0);
-  });
+  }, [fetch]);
 
   return (
     <React.Fragment>
@@ -21,7 +34,7 @@ const MarketPlace = () => {
           </div>
 
           <div className="grid grid-cols-1 px-20 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-[64px]">
-            {properties.map((property) => (
+            {data.map((property) => (
               <Property property={property} />
             ))}
           </div>
