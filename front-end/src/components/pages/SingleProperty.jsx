@@ -81,7 +81,7 @@ export default function SingleProperty() {
               onClick={handlePayment}
               disabled={isLoading}
               className="px-10 py-4 rounded-full bg-black text-white font-medium text-lg 
-                     shadow-md hover:bg-gray-900"
+             shadow-md hover:bg-gray-900 min-w-[200px]" // <-- largura fixa mínima
             >
               {isLoading ? <Spinner color="border-white" /> : "Buy your NFT"}
             </motion.button>
