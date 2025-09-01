@@ -191,6 +191,96 @@ const HomeLogged = () => {
           </div>
         </div>
       </div>
+
+      <div className="bg-gray-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-semibold text-gray-900 mb-4">
+            What Our <span className="text-blue-600">Users Say</span>
+          </h2>
+          <p className="text-lg text-gray-600 mb-12">
+            Trusted by thousands of investors around the globe.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 text-left">
+              <p className="text-gray-600 italic">
+                "RoyalCity made it so easy to start investing in crypto. I feel
+                secure and confident using their platform."
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  alt="User testimonial"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-gray-900">Sarah Johnson</h4>
+                  <p className="text-gray-500 text-sm">Investor</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 text-left">
+              <p className="text-gray-600 italic">
+                "The best marketplace experience I’ve had. Fast transactions and
+                reliable support team."
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="User testimonial"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-gray-900">James Lee</h4>
+                  <p className="text-gray-500 text-sm">Entrepreneur</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 text-left">
+              <p className="text-gray-600 italic">
+                "Finally, a platform that combines style with functionality.
+                It’s my go-to place for buying Ethereum and Bitcoin."
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <img
+                  src="https://randomuser.me/api/portraits/men/76.jpg"
+                  alt="User testimonial"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-gray-900">Carlos Mendes</h4>
+                  <p className="text-gray-500 text-sm">Crypto Enthusiast</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white py-28 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-5xl md:text-6xl font-semibold text-gray-900 mb-6">
+            Ready to <span className="text-blue-600">Start Your Journey?</span>
+          </h2>
+          <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+            Join thousands of investors already trading with confidence on
+            RoyalCity. Sign up today and take your first step into the future of
+            finance.
+          </p>
+          <div className="flex justify-center">
+            <Link to="/MarketPlace">
+              <button className="px-10 py-3 rounded-full border border-gray-900 text-gray-900 font-medium text-lg hover:bg-gray-900 hover:text-white transition-all">
+                Explore Market
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
