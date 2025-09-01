@@ -7,6 +7,18 @@ import Spinner from "../misc/Spinner";
 const HomeLogged = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const getToken = async () => {
+      const token = await localforage.getItem("@token");
+
+      if (!token) {
+        navigate("/");
+      }
+    };
+
+    getToken();
+  }, []);
+
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-white px-6">
