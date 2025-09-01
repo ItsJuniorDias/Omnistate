@@ -44,7 +44,7 @@ const Home = () => {
     <React.Fragment>
       <Header />
 
-      <h2 className="text-[24px] mt-[32px] mb-[32px]">
+      <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mt-8 mb-8 max-w-3xl mx-auto">
         How to invest and trade in real estate with RoyalCity?
       </h2>
 
@@ -122,82 +122,141 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="ad">
-        <h3> The advantages, without the disadvantages</h3>
-        <p>
+      <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+        <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
+          The advantages, without the disadvantages
+        </h3>
+        <p className="text-gray-700 text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
           Our unique solution allows everyone to build up their own assets, from
           as little as $10.
           <br />
           Investing your savings is finally simple and really rewarding.
         </p>
 
-        <div className="adcontainer">
-          <div className="adcontent">
-            <i className="fas fa-check fa-checker" />
-            <h3>Profitability</h3>
-            <p>We will try to base this on an average of 7%.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Card 1 */}
+          <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+            <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
+            <h4 className="text-xl font-semibold text-gray-900 mb-2">
+              Profitability
+            </h4>
+            <p className="text-gray-600 text-sm md:text-base text-center">
+              We will try to base this on an average of 7%.
+            </p>
           </div>
-          <div className="adcontent">
-            <i className="fas fa-check fa-checker" />
-            <h3>Liquidity</h3>
-            <p>You buy and sell your NFTs whenever you want.</p>
+
+          {/* Card 2 */}
+          <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+            <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
+            <h4 className="text-xl font-semibold text-gray-900 mb-2">
+              Liquidity
+            </h4>
+            <p className="text-gray-600 text-sm md:text-base text-center">
+              You buy and sell your NFTs whenever you want.
+            </p>
           </div>
-          <div className="adcontent">
-            <i className="fas fa-check fa-checker" />
-            <h3>No hidden fee</h3>
-            <p>No entry, exit or capital gains fees.</p>
+
+          {/* Card 3 */}
+          <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+            <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
+            <h4 className="text-xl font-semibold text-gray-900 mb-2">
+              No hidden fee
+            </h4>
+            <p className="text-gray-600 text-sm md:text-base text-center">
+              No entry, exit or capital gains fees.
+            </p>
           </div>
-          <div className="adcontent">
-            <i className="fas fa-check fa-checker" />
-            <h3>No management</h3>
-            <p>Don't worry, RoyalCity takes care of everything.</p>
+
+          {/* Card 4 */}
+          <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+            <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
+            <h4 className="text-xl font-semibold text-gray-900 mb-2">
+              No management
+            </h4>
+            <p className="text-gray-600 text-sm md:text-base text-center">
+              Don't worry, RoyalCity takes care of everything.
+            </p>
           </div>
         </div>
-      </div>
-      <h3>
-        How <span className="cl-blue">RoyalCity</span> works?
-      </h3>
-      <div className="how">
-        <div className="how-left">
-          <h3>
-            <span className="cl-blue">1.</span> A building is selected
-          </h3>
-          <p>We divide it by 10$ to have a supply NFTs on it.</p>
-          <br />
-          <h3>
-            <span className="cl-blue">2.</span> A building is selected
-          </h3>
-          <p>You can now buy NFTs against the property in question.</p>
-        </div>
-        <div className="how-right">
-          <h3>
-            <span className="cl-blue">3.</span> A building is selected
-          </h3>
-          <p>
-            Each month, you will receive the rents collected on your wallet.{" "}
-          </p>
-          <br />
-          <h3>
-            <span className="cl-blue">4.</span> A building is selected
-          </h3>
-          <p>
-            When you decide, you can put your NFT up for sale, otherwise take
-            advantage of the passive income.
-          </p>
-        </div>
-        <img
-          src={vrmobile}
-          className="vrmobile"
-          alt="RoyalCity mobile"
-          style={{ width: "550px", height: "350px" }}
-        />
       </div>
 
-      <div className="flex flex-row justify-between px-20 mb-[32px]">
-        <h3 id="properties">Among our properties already financed</h3>
-        <h3 className="cl-blue">
-          <a href="/MarketPlace">View All</a>
+      <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+        {/* Título */}
+        <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-12">
+          How <span className="text-blue-600">RoyalCity</span> works?
         </h3>
+
+        {/* Conteúdo */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 relative">
+          {/* Left Steps */}
+          <div className="flex-1 space-y-8 text-left">
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-1">
+                <span className="text-blue-600 mr-2">1.</span> A building is
+                selected
+              </h4>
+              <p className="text-gray-600 text-sm md:text-base">
+                We divide it by $10 to have a supply of NFTs on it.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-1">
+                <span className="text-blue-600 mr-2">2.</span> NFTs are
+                available
+              </h4>
+              <p className="text-gray-600 text-sm md:text-base">
+                You can now buy NFTs against the property in question.
+              </p>
+            </div>
+          </div>
+
+          {/* Center Image */}
+          <div className="flex-shrink-0">
+            <img
+              src={vrmobile}
+              alt="RoyalCity mobile"
+              className="w-80 h-64 md:w-[550px] md:h-[350px] mx-auto rounded-xl shadow-lg"
+            />
+          </div>
+
+          {/* Right Steps */}
+          <div className="flex-1 space-y-8 text-left">
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-1">
+                <span className="text-blue-600 mr-2">3.</span> Receive rents
+              </h4>
+              <p className="text-gray-600 text-sm md:text-base">
+                Each month, you will receive the rents collected on your wallet.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-1">
+                <span className="text-blue-600 mr-2">4.</span> Sell or hold NFTs
+              </h4>
+              <p className="text-gray-600 text-sm md:text-base">
+                When you decide, you can put your NFT up for sale, otherwise
+                take advantage of the passive income.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 mb-8">
+        <h3
+          className="text-2xl md:text-3xl font-semibold text-gray-900"
+          id="properties"
+        >
+          Among our properties already financed
+        </h3>
+        <a
+          href="/MarketPlace"
+          className="mt-4 md:mt-0 text-blue-600 font-medium hover:underline transition"
+        >
+          View All
+        </a>
       </div>
 
       <div className="grid grid-cols-1 px-20 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-[64px]">
@@ -206,16 +265,22 @@ const Home = () => {
         ))}
       </div>
 
-      <h3>Your most frequently asked questions</h3>
-      <p className="center">
-        Based on your feedback, we try to answer your questions and
-        expectations.
-      </p>
-      <div id="faq">
-        {faq.map((q, i) => {
-          return <QnA n={i + 1} q={q} />;
-        })}
+      <div className="max-w-4xl mx-auto px-6 py-16 text-center ">
+        <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+          Your most frequently asked questions
+        </h3>
+        <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+          Based on your feedback, we try to answer your questions and
+          expectations.
+        </p>
       </div>
+
+      <div id="faq" className="max-w-4xl mx-auto px-6 space-y-4">
+        {faq.map((q, i) => (
+          <QnA key={i} n={i + 1} q={q} />
+        ))}
+      </div>
+
       <Gift />
     </React.Fragment>
   );
