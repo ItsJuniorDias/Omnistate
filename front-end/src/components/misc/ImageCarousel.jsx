@@ -27,19 +27,22 @@ const ImageCarousel = ({ images }) => {
   return (
     <div className="carousel-container">
       <div
-        className="selected-image"
+        className="selected-image bg-center bg-cover rounded-2xl transition-transform duration-500 hover:scale-105"
         style={{ backgroundImage: `url(${selectedImage})` }}
       />
-      <div className="carousel-images">
+
+      <div className="carousel-images flex gap-3 mt-4">
         {images &&
           images.map((image, idx) => (
             <div
               onClick={() => handleSelectedImageChange(idx)}
               style={{ backgroundImage: `url(${image})` }}
               key={image.id}
-              className={`carousel-image ${
-                selectedImageIndex === idx && "carousel-image-selected"
-              }`}
+              className={`carousel-image bg-center bg-cover rounded-xl cursor-pointer 
+                     transition-transform duration-500 hover:scale-110 ${
+                       selectedImageIndex === idx &&
+                       "carousel-image-selected ring-2 ring-blue-500"
+                     }`}
               ref={(el) => (carouselItemsRef.current[idx] = el)}
             />
           ))}
