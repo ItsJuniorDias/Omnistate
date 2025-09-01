@@ -21,6 +21,7 @@ import Checkout from "./components/pages/Checkout";
 import "./App.css";
 import SingleProperty from "./components/pages/SingleProperty";
 import OrderPage from "./components/pages/Order";
+import LatestNews from "./components/pages/LatestNews";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/HomeLogged" element={<HomeLogged />}></Route>
                 <Route path="/Checkout/:id" element={<Checkout />}></Route>
                 <Route path="/Order" element={<OrderPage />}></Route>
+                <Route path="/LatestNews" element={<LatestNews />}></Route>
 
                 <Route path="/SignIn" element={<SignIn />}></Route>
                 <Route path="/SignUp" element={<SignUp />}></Route>
