@@ -71,6 +71,14 @@ const MenuBar = () => {
 
         {/* Menu desktop */}
         <ul className="hidden md:flex items-center space-x-6 text-gray-800">
+          {!!query.data && (
+            <li>
+              <a href="/HomeLogged" className="hover:text-blue-600 transition">
+                Home
+              </a>
+            </li>
+          )}
+
           <li>
             <a href="/About" className="hover:text-blue-600 transition">
               About
