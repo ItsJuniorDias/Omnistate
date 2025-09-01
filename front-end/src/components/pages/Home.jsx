@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
 
 import { api } from "../../service/api";
@@ -50,18 +50,17 @@ const Home = () => {
 
       <div className="w-full px-6 py-10 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Step 01 */}
           <div className="relative rounded-2xl shadow-lg overflow-hidden group">
             <img
               src={connect_wallet}
               alt="wallet"
               className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            {/* Número */}
+
             <span className="absolute top-3 left-3 bg-blue-600 text-white font-bold text-lg px-3 py-1 rounded-lg shadow">
               01
             </span>
-            {/* Footer sombreado */}
+
             <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 text-center">
               <p className="text-white text-base font-semibold">
                 Connect your wallet to RoyalCity
@@ -69,7 +68,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Step 02 */}
           <div className="relative rounded-2xl shadow-lg overflow-hidden group">
             <img
               src={home1}
@@ -86,7 +84,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Step 03 */}
           <div className="relative rounded-2xl shadow-lg overflow-hidden group">
             <img
               src={trading}
@@ -103,7 +100,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Step 04 */}
           <div className="relative rounded-2xl shadow-lg overflow-hidden group">
             <img
               src={sellhome}
@@ -134,7 +130,6 @@ const Home = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Card 1 */}
           <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
             <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">
@@ -145,7 +140,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Card 2 */}
           <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
             <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">
@@ -156,7 +150,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Card 3 */}
           <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
             <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">
@@ -167,7 +160,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Card 4 */}
           <div className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
             <i className="fas fa-check fa-2x text-blue-600 mb-4"></i>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">
@@ -181,14 +173,11 @@ const Home = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-        {/* Título */}
         <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-12">
           How <span className="text-blue-600">RoyalCity</span> works?
         </h3>
 
-        {/* Conteúdo */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 relative">
-          {/* Left Steps */}
           <div className="flex-1 space-y-8 text-left">
             <div>
               <h4 className="text-xl font-semibold text-gray-900 mb-1">
@@ -211,16 +200,16 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Center Image */}
           <div className="flex-shrink-0">
             <img
-              src={vrmobile}
+              src={
+                "https://res.cloudinary.com/dqvujibkn/image/upload/v1756739927/65534f11-3411-4bd2-a701-46b46a1e3b8b_ltodpp.png"
+              }
               alt="RoyalCity mobile"
-              className="w-80 h-64 md:w-[550px] md:h-[350px] mx-auto rounded-xl shadow-lg"
+              className="w-80 h-64 md:w-[550px] md:h-[350px] mx-auto rounded-xl"
             />
           </div>
 
-          {/* Right Steps */}
           <div className="flex-1 space-y-8 text-left">
             <div>
               <h4 className="text-xl font-semibold text-gray-900 mb-1">

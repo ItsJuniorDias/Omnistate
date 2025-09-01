@@ -24,79 +24,28 @@ const ImageCarousel = ({ images }) => {
     }
   };
 
-//   return (
-//     <div className="carousel-container">
-//       <div
-//         className="selected-image"
-//         style={{ backgroundImage: `url(${selectedImage?.url})` }}
-//       />
-//       <div className="carousel">
-//         <div className="carousel__images">
-//           {images &&
-//             images.map((image, idx) => (
-//               <div
-//                 onClick={() => handleSelectedImageChange(idx)}
-//                 style={{ backgroundImage: `url(${image.url})` }}
-//                 key={image.id}
-//                 className={`carousel__image ${
-//                   selectedImageIndex === idx && "carousel__image-selected"
-//                 }`}
-//                 ref={(el) => (carouselItemsRef.current[idx] = el)}
-//               />
-//             ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-  // return (
-  //   <div className="carousel-container">
-  //     <img
-  //       className="selected-image"
-  //       src={selectedImage?.url}
-  //     />
-  //       <div className="carousel__images">
-  //         {images &&
-  //           images.map((image, idx) => (
-  //             <img
-  //               onClick={() => handleSelectedImageChange(idx)}
-  //               src={image.url}
-  //               key={image.id}
-  //               className={`carousel__image ${
-  //                 selectedImageIndex === idx && "carousel__image-selected"
-  //               }`}
-  //               ref={(el) => (carouselItemsRef.current[idx] = el)}
-  //             />
-  //           ))}
-  //       </div>
-  //   </div>
-  // );
-
   return (
     <div className="carousel-container">
-      <div className="selected-image" style={{ backgroundImage: `url(${selectedImage})` }}/>
+      <div
+        className="selected-image"
+        style={{ backgroundImage: `url(${selectedImage})` }}
+      />
       <div className="carousel-images">
         {images &&
-            images.map((image, idx) => (
-              <div
-                onClick={() => handleSelectedImageChange(idx)}
-                style={{ backgroundImage: `url(${image})` }}
-                key={image.id}
-                className={`carousel-image ${
-                  selectedImageIndex === idx && "carousel-image-selected"
-                }`}
-                ref={(el) => (carouselItemsRef.current[idx] = el)}
-              />
-            ))}
-          {/* <div className="carousel-image">
-          </div>
-          <div className="carousel-image">
-          </div>
-          <div className="carousel-image">
-          </div>
-          <div className="carousel-image"> */}
+          images.map((image, idx) => (
+            <div
+              onClick={() => handleSelectedImageChange(idx)}
+              style={{ backgroundImage: `url(${image})` }}
+              key={image.id}
+              className={`carousel-image ${
+                selectedImageIndex === idx && "carousel-image-selected"
+              }`}
+              ref={(el) => (carouselItemsRef.current[idx] = el)}
+            />
+          ))}
       </div>
     </div>
-  )
+  );
 };
 
 export default ImageCarousel;

@@ -53,7 +53,6 @@ const MenuBar = () => {
           </li>
         </ul>
 
-        {/* Hamburger menu mobile */}
         <div className="md:hidden">
           <input type="checkbox" id="menu-btn" className="hidden peer" />
           <label

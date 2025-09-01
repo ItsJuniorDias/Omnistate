@@ -13,38 +13,79 @@ const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
+
   return (
     <React.Fragment>
-      <section className="faq pt-[40px]">
-        <h1 className="page-heading">FAQ</h1>
-        <div>
-          <h2>General Information</h2>
-          {how.map((how, i) => (
-            <QnA n={i + 1} q={how} />
-          ))}
-          <h2>Marketplace</h2>
-          {marketPlace.map((m, i) => (
-            <QnA n={i + 1} q={m} />
-          ))}
-          <h2>Property Management</h2>
-          {propertyManagement.map((p, i) => (
-            <QnA n={i + 1} q={p} />
-          ))}
-          <h2>Accounting</h2>
-          {accounting.map((a, i) => (
-            <QnA n={i + 1} q={a} />
-          ))}
-          <h2>Financial</h2>
-          {financial.map((f, i) => (
-            <QnA n={i + 1} q={f} />
-          ))}
-          <h2>Legal</h2>
-          {legal.map((l, i) => (
-            <QnA n={i + 1} q={l} />
-          ))}
+      <section className="faq pt-16 px-6 mt-[40px] md:px-20">
+        <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-12 text-center md:text-left">
+          FAQ
+        </h1>
+
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              General Information
+            </h2>
+            <div className="space-y-4">
+              {how.map((item, i) => (
+                <QnA key={i} n={i + 1} q={item} />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Marketplace
+            </h2>
+            <div className="space-y-4">
+              {marketPlace.map((item, i) => (
+                <QnA key={i} n={i + 1} q={item} />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Property Management
+            </h2>
+            <div className="space-y-4">
+              {propertyManagement.map((item, i) => (
+                <QnA key={i} n={i + 1} q={item} />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Accounting
+            </h2>
+            <div className="space-y-4">
+              {accounting.map((item, i) => (
+                <QnA key={i} n={i + 1} q={item} />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Financial
+            </h2>
+            <div className="space-y-4">
+              {financial.map((item, i) => (
+                <QnA key={i} n={i + 1} q={item} />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Legal</h2>
+            <div className="space-y-4">
+              {legal.map((item, i) => (
+                <QnA key={i} n={i + 1} q={item} />
+              ))}
+            </div>
+          </div>
         </div>
-        <br />
-        <br />
       </section>
     </React.Fragment>
   );

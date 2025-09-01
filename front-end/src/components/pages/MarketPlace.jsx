@@ -25,19 +25,27 @@ const MarketPlace = () => {
 
   return (
     <React.Fragment>
-      <section className="about pt-[40px]">
-        <h1 className="page-heading">MarketPlace</h1>
-        <div className="market-contents">
-          <div className="flex flex-row justify-between px-20 mb-[32px]">
-            <h3 id="properties">Among our properties already financed</h3>
-            <h3 className="cl-blue">View All</h3>
-          </div>
+      <section className="about pt-16 px-6 mt-[40px] md:px-20">
+        <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-12 text-center md:text-left">
+          MarketPlace
+        </h1>
 
-          <div className="grid grid-cols-1 px-20 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-[64px]">
-            {data.map((property) => (
-              <Property property={property} />
-            ))}
-          </div>
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <h3
+            id="properties"
+            className="text-lg md:text-xl font-medium text-gray-800 mb-4 md:mb-0"
+          >
+            Among our properties already financed
+          </h3>
+          <h3 className="text-blue-600 font-medium text-lg hover:underline cursor-pointer">
+            View All
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {data.map((property) => (
+            <Property key={property.id} property={property} />
+          ))}
         </div>
       </section>
     </React.Fragment>
