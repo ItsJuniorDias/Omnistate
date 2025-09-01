@@ -48,34 +48,77 @@ const Home = () => {
         How to invest and trade in real estate with RoyalCity?
       </h2>
 
-      <div className="flex w-full justify-center">
-        <div className="content">
-          <h3>
-            <span className="dash">- </span> 01
-          </h3>
-          <img className="arc" src={connect_wallet} alt="wallet" />
-          <p>Connect your wallet to RoyalCity</p>
-        </div>
-        <div className="content">
-          <h3>
-            <span className="dash">- </span> 02
-          </h3>
-          <img className="arc" src={home1} alt="home" />
-          <p>Go to the marketplaces to buy an real estate</p>
-        </div>
-        <div className="content">
-          <h3>
-            <span className="dash">- </span> 03
-          </h3>
-          <img className="arc" src={trading} alt="trading" />
-          <p>You receive your rental return each month.</p>
-        </div>
-        <div className="content">
-          <h3>
-            <span className="dash">- </span> 04
-          </h3>
-          <img className="arc" src={sellhome} alt="sell_home" />
-          <p>Sell your real estate whenever you want.</p>
+      <div className="w-full px-6 py-10 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Step 01 */}
+          <div className="relative rounded-2xl shadow-lg overflow-hidden group">
+            <img
+              src={connect_wallet}
+              alt="wallet"
+              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            {/* Número */}
+            <span className="absolute top-3 left-3 bg-blue-600 text-white font-bold text-lg px-3 py-1 rounded-lg shadow">
+              01
+            </span>
+            {/* Footer sombreado */}
+            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 text-center">
+              <p className="text-white text-base font-semibold">
+                Connect your wallet to RoyalCity
+              </p>
+            </div>
+          </div>
+
+          {/* Step 02 */}
+          <div className="relative rounded-2xl shadow-lg overflow-hidden group">
+            <img
+              src={home1}
+              alt="home"
+              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <span className="absolute top-3 left-3 bg-blue-600 text-white font-bold text-lg px-3 py-1 rounded-lg shadow">
+              02
+            </span>
+            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 text-center">
+              <p className="text-white text-base font-semibold">
+                Go to the marketplaces to buy a real estate
+              </p>
+            </div>
+          </div>
+
+          {/* Step 03 */}
+          <div className="relative rounded-2xl shadow-lg overflow-hidden group">
+            <img
+              src={trading}
+              alt="trading"
+              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <span className="absolute top-3 left-3 bg-blue-600 text-white font-bold text-lg px-3 py-1 rounded-lg shadow">
+              03
+            </span>
+            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 text-center">
+              <p className="text-white text-base font-semibold">
+                You receive your rental return each month.
+              </p>
+            </div>
+          </div>
+
+          {/* Step 04 */}
+          <div className="relative rounded-2xl shadow-lg overflow-hidden group">
+            <img
+              src={sellhome}
+              alt="sell_home"
+              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <span className="absolute top-3 left-3 bg-blue-600 text-white font-bold text-lg px-3 py-1 rounded-lg shadow">
+              04
+            </span>
+            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 text-center">
+              <p className="text-white text-base font-semibold">
+                Sell your real estate whenever you want.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

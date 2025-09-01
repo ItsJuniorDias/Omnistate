@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function OrderPage() {
   const location = useLocation();
   const locationOrder = location.state || {};
 
-  console.log(locationOrder, "LOCATION");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!locationOrder) {
+      navigate("/");
+    }
+  }, []);
 
   function formatMoney(value, locale = "en-US", currency = "USD") {
     return new Intl.NumberFormat(locale, {
@@ -43,7 +49,7 @@ export default function OrderPage() {
           <p className="text-sm text-gray-600">
             Order Number:{" "}
             <span className="font-medium">
-              {locationOrder?.order.orderNumber}
+              {locationOrder?.order?.orderNumber}
             </span>
           </p>
           <p className="text-sm text-gray-600">
@@ -52,7 +58,7 @@ export default function OrderPage() {
           <p className="text-sm text-gray-600">
             Total:{" "}
             <span className="font-medium">{`${formatMoney(
-              locationOrder?.order.totalPrice
+              locationOrder?.order?.totalPrice
             )}`}</span>
           </p>
         </div>
