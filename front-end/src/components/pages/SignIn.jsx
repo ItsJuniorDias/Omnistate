@@ -11,6 +11,7 @@ import localforage from "localforage";
 import { api } from "../../service/api";
 import ErrorModal from "../misc/ErrorModal";
 import Spinner from "../misc/Spinner";
+import { useQueryClient } from "@tanstack/react-query";
 
 const loginSchema = z.object({
   email: z.string().email("* Email is required"),
@@ -21,6 +22,8 @@ const SignInScreen = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const queryClient = useQueryClient();
 
   const {
     control,
@@ -54,6 +57,8 @@ const SignInScreen = () => {
 
       setTimeout(() => {
         setIsLoading(false);
+
+        queryClient.invalidateQueries({ queryKey: ["user"] });
 
         return navigate("/HomeLogged");
       }, 2000);

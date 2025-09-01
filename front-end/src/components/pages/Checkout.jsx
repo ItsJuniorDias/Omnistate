@@ -11,6 +11,7 @@ import {
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import localforage from "localforage";
 import { api } from "../../service/api";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function CheckoutScreen(props) {
   const { id } = useParams();
