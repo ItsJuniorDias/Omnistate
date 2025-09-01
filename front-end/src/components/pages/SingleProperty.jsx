@@ -35,9 +35,14 @@ export default function SingleProperty() {
 
       const { client_secret } = response.data;
 
-      navigate({
-        pathname: `/Checkout/${client_secret}`,
-      });
+      navigate(
+        {
+          pathname: `/Checkout/${client_secret}`,
+        },
+        {
+          state: property,
+        }
+      );
     } catch (error) {
       console.log(error);
     }

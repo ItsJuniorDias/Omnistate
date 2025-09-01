@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   CardNumberElement,
   CardExpiryElement,
@@ -7,16 +8,34 @@ import {
   useElements,
   CardElement,
 } from "@stripe/react-stripe-js";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import localforage from "localforage";
+import { api } from "../../service/api";
 
 export default function CheckoutScreen(props) {
   const { id } = useParams();
+
+  const { state } = useLocation();
+
+  // const { property } = state;
+
+  console.log(state, "PROPERTY");
+
+  const navigate = useNavigate();
 
   console.log(id, "PARAMS");
 
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
+
+  function generateRefCode() {
+    const prefix = "#RC";
+    const randomNumber = Math.floor(10000 + Math.random() * 90000); // 5 dígitos
+    return `${prefix}${randomNumber}`;
+  }
+
+  console.log(generateRefCode(), "GENERATED REF CODE");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,6 +78,54 @@ export default function CheckoutScreen(props) {
 
         if (paymentIntent.status === "succeeded") {
           alert("Payment successful!");
+
+          const token = await localforage.getItem("@token");
+
+          console.log(token, "TOKEN");
+
+          const response = await api.post(
+            "/api/v1/order/new",
+            {
+              orderNumber: generateRefCode(),
+              shippingInfo: {
+                address: "123 Main Street",
+                city: "São Paulo",
+                state: "SP",
+                country: "Brazil",
+                pincode: 12345678,
+                phoneNo: 5511999999999,
+              },
+              useREPmail: "itsjuniordias1997@gmail.com",
+              orderItems: [
+                {
+                  name: state.name,
+                  price: state.price,
+                  quantity: 1,
+                  image: state.images[0],
+                  product: state._id,
+                },
+              ],
+              user: "68b356a869db0026237df38a",
+              paymentInfo: {
+                id: paymentIntent.id,
+                status: paymentIntent.status,
+              },
+              paidAt: "2025-08-31T12:00:00.000Z",
+              totalPrice: state.price,
+              orderStatus: "Processing",
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          console.log(response.data, "RESPONSE CREATE ORDER");
+
+          navigate("/Order", {
+            state: response.data,
+          });
         }
       }
 

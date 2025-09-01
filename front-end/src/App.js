@@ -18,6 +18,7 @@ import Checkout from "./components/pages/Checkout";
 
 import "./App.css";
 import SingleProperty from "./components/pages/SingleProperty";
+import OrderPage from "./components/pages/Order";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Routes>
               <Route path="/HomeLogged" element={<HomeLogged />}></Route>
               <Route path="/Checkout/:id" element={<Checkout />}></Route>
+              <Route path="/Order" element={<OrderPage />}></Route>
 
               <Route path="/SignIn" element={<SignIn />}></Route>
               <Route path="/SignUp" element={<SignUp />}></Route>

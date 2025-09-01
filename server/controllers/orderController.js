@@ -10,7 +10,7 @@ const userModel = require("../models/userModel");
 
 // Create New Order
 exports.newOrder = asyncErrorHandler(async (req, res, next) => {
-  const { shippingInfo, orderItems, paymentInfo, totalPrice, useREPmail } =
+  const { shippingInfo, orderItems, paymentInfo, totalPrice, orderNumber } =
     req.body;
 
   const orderExist = await Order.findOne({ paymentInfo });
@@ -20,55 +20,61 @@ exports.newOrder = asyncErrorHandler(async (req, res, next) => {
   }
 
   const order = await Order.create({
+    orderNumber,
     shippingInfo,
     orderItems,
     paymentInfo,
     totalPrice,
     paidAt: Date.now(),
-    user: req.user._id,
+    user: req.body.user,
   });
 
-  const user = await User.findById(req.user.id);
+  const user = await User.findById(req.body.user);
 
-  const mailOptions = {
-    from: "reabilitado97@gmail.com",
-    to: useREPmail,
-    subject: "Cryptocurrency Purchase Confirmation",
-    text: `Hello ${user.name},
-
-      Thank you for your purchase! We have received your request to pay using cryptocurrency.
-
-      Transaction Details:
-
-      Product/Service: ${order.orderItems[0].name}
-
-      Quantity: ${order.orderItems[0].quantity}
-
-      Total Amount:  ${order.orderItems[0].price}
-
-      Please confirm the transaction so we can process your order. Once the payment is verified, you will receive a confirmation of shipment or access to the purchased service.
-
-      If you have any questions, our support team is available at: itsjuniordias1997@gmail.com.
-
-      Thank you for your business!`,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      res.json({
-        error,
-      });
-    } else {
-      console.log(info.response, "INFO RESPONSE");
-
-      res.json({
-        data: {
-          info: info.response,
-          order,
-        },
-      });
-    }
+  res.json({
+    order,
+    user,
   });
+
+  // const mailOptions = {
+  //   from: "reabilitado97@gmail.com",
+  //   to: useREPmail,
+  //   subject: "Cryptocurrency Purchase Confirmation",
+  //   text: `Hello ${user.name},
+
+  //     Thank you for your purchase! We have received your request to pay using cryptocurrency.
+
+  //     Transaction Details:
+
+  //     Product/Service: ${order.orderItems[0].name}
+
+  //     Quantity: ${order.orderItems[0].quantity}
+
+  //     Total Amount:  ${order.orderItems[0].price}
+
+  //     Please confirm the transaction so we can process your order. Once the payment is verified, you will receive a confirmation of shipment or access to the purchased service.
+
+  //     If you have any questions, our support team is available at: itsjuniordias1997@gmail.com.
+
+  //     Thank you for your business!`,
+  // };
+
+  // transporter.sendMail(mailOptions, (error, info) => {
+  //   if (error) {
+  //     res.json({
+  //       error,
+  //     });
+  //   } else {
+  //     console.log(info.response, "INFO RESPONSE");
+
+  //     res.json({
+  //       data: {
+  //         info: info.response,
+  //         order,
+  //       },
+  //     });
+  //   }
+  // });
 });
 
 // Get Single Order Details

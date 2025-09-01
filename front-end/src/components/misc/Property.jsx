@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Property.css";
 import { Link } from "react-router-dom";
+import { usePropertyStore } from "../../store/useProperty";
 
 const Property = ({ property }) => {
   return (
