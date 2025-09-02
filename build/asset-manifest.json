@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f1e9ad68.css",
+    "main.js": "/static/js/main.c10f2b4d.js",
+    "static/js/651.63c9ab65.chunk.js": "/static/js/651.63c9ab65.chunk.js",
+    "static/media/sellhome.jpg": "/static/media/sellhome.fbdc84a9bc7c112515eb.jpg",
+    "static/media/home.jpg": "/static/media/home.8de27d541a89e0d330b6.jpg",
+    "static/media/vrmobile.png": "/static/media/vrmobile.79ab4541e5523996a00e.png",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.e615bbcb258550973c16.ttf",
+    "static/media/header.jpg": "/static/media/header.73533b0504e769e5d2ab.jpg",
+    "static/media/about-image.png": "/static/media/about-image.0bfaee5462c7dbeac94e.png",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.b823fc0dbb5a5f0c21bb.ttf",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.59edf72a325ac2048d60.woff2",
+    "static/media/trading.jpg": "/static/media/trading.7ea1604c77dfd03416eb.jpg",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.ebb7a127d2d8ee6f1832.woff2",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.0d03b1bbd1d62c1e1284.ttf",
+    "static/media/connect_wallet.png": "/static/media/connect_wallet.4b5d438a954d4400b2ac.png",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.0caf4c6cf244a90efcc5.woff2",
+    "static/media/building.jpg": "/static/media/building.b6c79305ca877e5106cf.jpg",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.4baccb548138840fa33a.ttf",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.afac89562a5301459069.woff2",
+    "index.html": "/index.html",
+    "main.f1e9ad68.css.map": "/static/css/main.f1e9ad68.css.map",
+    "main.c10f2b4d.js.map": "/static/js/main.c10f2b4d.js.map",
+    "651.63c9ab65.chunk.js.map": "/static/js/651.63c9ab65.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1e9ad68.css",
+    "static/js/main.c10f2b4d.js"
+  ]
+}
