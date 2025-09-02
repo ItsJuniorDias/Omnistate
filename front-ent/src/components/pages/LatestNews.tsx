@@ -1,12 +1,25 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+type ArticleType = "bitcoin" | "ethereum" | "global";
+
+type LocationState = { type: ArticleType };
+
 export default function NewsArticle() {
   const { state } = useLocation();
 
-  const { type } = state;
+  const { type } = state as LocationState;
 
-  const objectArticle = {
+  const objectArticle: Record<
+    ArticleType,
+    {
+      title: string;
+      author: string;
+      date: string;
+      image: string;
+      content: string;
+    }
+  > = {
     bitcoin: {
       title: "Bitcoin Hits New High",
       author: "Ana Costa",
