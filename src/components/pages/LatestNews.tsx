@@ -1,12 +1,21 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+type ArticleType = "bitcoin" | "ethereum" | "global";
+
 export default function NewsArticle() {
-  const { state } = useLocation();
+  const { state } = useLocation() as { state: { type: string } };
 
-  const { type } = state;
-
-  const objectArticle = {
+  const objectArticle: Record<
+    ArticleType,
+    {
+      title: string;
+      author: string;
+      date: string;
+      image: string;
+      content: string;
+    }
+  > = {
     bitcoin: {
       title: "Bitcoin Hits New High",
       author: "Ana Costa",
@@ -77,6 +86,8 @@ export default function NewsArticle() {
       `,
     },
   };
+
+  const { type } = state as { type: ArticleType }; // 👈 força o tipo correto
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,27 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+interface OrderState {
+  order: {
+    orderNumber: string;
+    totalPrice: number;
+  };
+}
+
 export default function OrderPage() {
   const location = useLocation();
-  const locationOrder = location.state || {};
+  const state = location.state as OrderState | null;
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!locationOrder) {
+    if (!state || !state.order) {
       navigate("/");
     }
-  }, []);
+  }, [state, navigate]);
 
-  function formatMoney(value, locale = "en-US", currency = "USD") {
+  function formatMoney(value: number, locale = "en-US", currency = "USD") {
     return new Intl.NumberFormat(locale, {
       style: "currency",
-      currency: currency,
+      currency,
     }).format(value);
   }
 
-  function formatDate(date, locale = "en-US") {
+  function formatDate(date: Date, locale = "en-US") {
     return new Intl.DateTimeFormat(locale, {
       year: "numeric",
       month: "long",
@@ -32,7 +39,6 @@ export default function OrderPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="bg-white shadow-xl rounded-2xl p-10 max-w-lg text-center">
-        {/* Ícone de sucesso */}
         <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
 
         <h1 className="text-3xl font-bold text-gray-800 mb-2">Thank You!</h1>
@@ -41,29 +47,25 @@ export default function OrderPage() {
           confirmation email shortly with your order details.
         </p>
 
-        {/* Resumo pequeno da ordem */}
         <div className="bg-gray-50 rounded-xl p-4 mb-6 text-left">
           <h2 className="text-lg font-semibold text-gray-700 mb-2">
             Order Details
           </h2>
           <p className="text-sm text-gray-600">
             Order Number:{" "}
-            <span className="font-medium">
-              {locationOrder?.order?.orderNumber}
-            </span>
+            <span className="font-medium">{state?.order?.orderNumber}</span>
           </p>
           <p className="text-sm text-gray-600">
             Date: <span className="font-medium">{formatDate(new Date())}</span>
           </p>
           <p className="text-sm text-gray-600">
             Total:{" "}
-            <span className="font-medium">{`${formatMoney(
-              locationOrder?.order?.totalPrice
-            )}`}</span>
+            <span className="font-medium">
+              {formatMoney(state?.order?.totalPrice ?? 0)}
+            </span>
           </p>
         </div>
 
-        {/* Botões de ação */}
         <div className="flex justify-center gap-4">
           <Link to="/">
             <button className="px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
