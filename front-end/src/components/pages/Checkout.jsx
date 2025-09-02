@@ -48,6 +48,8 @@ export default function CheckoutScreen(props) {
     const cardExpiry = elements.getElement(CardExpiryElement);
     const cardCvc = elements.getElement(CardCvcElement);
 
+    const user = await localforage.getItem("@user");
+
     try {
       const { error, paymentMethod } = await stripe.createPaymentMethod({
         type: "card",
@@ -106,7 +108,7 @@ export default function CheckoutScreen(props) {
                   product: state._id,
                 },
               ],
-              user: "68b356a869db0026237df38a",
+              user: user._id,
               paymentInfo: {
                 id: paymentIntent.id,
                 status: paymentIntent.status,

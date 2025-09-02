@@ -36,45 +36,38 @@ exports.newOrder = asyncErrorHandler(async (req, res, next) => {
     user,
   });
 
-  // const mailOptions = {
-  //   from: "reabilitado97@gmail.com",
-  //   to: useREPmail,
-  //   subject: "Cryptocurrency Purchase Confirmation",
-  //   text: `Hello ${user.name},
+  const mailOptions = {
+    from: "reabilitado97@gmail.com",
+    to: user.email,
+    subject: "Cryptocurrency Purchase Confirmation",
+    text: `Hello ${user.name},
 
-  //     Thank you for your purchase! We have received your request to pay using cryptocurrency.
+      Thank you for your purchase! We have received your request to pay using cryptocurrency.
 
-  //     Transaction Details:
+      Transaction Details:
 
-  //     Product/Service: ${order.orderItems[0].name}
+      Product/Service: ${order.orderItems[0].name}
 
-  //     Quantity: ${order.orderItems[0].quantity}
+      Quantity: ${order.orderItems[0].quantity}
 
-  //     Total Amount:  ${order.orderItems[0].price}
+      Total Amount:  ${order.orderItems[0].price}
 
-  //     Please confirm the transaction so we can process your order. Once the payment is verified, you will receive a confirmation of shipment or access to the purchased service.
+      Please confirm the transaction so we can process your order. Once the payment is verified, you will receive a confirmation of shipment or access to the purchased service.
 
-  //     If you have any questions, our support team is available at: itsjuniordias1997@gmail.com.
+      If you have any questions, our support team is available at: itsjuniordias1997@gmail.com.
 
-  //     Thank you for your business!`,
-  // };
+      Thank you for your business!`,
+  };
 
-  // transporter.sendMail(mailOptions, (error, info) => {
-  //   if (error) {
-  //     res.json({
-  //       error,
-  //     });
-  //   } else {
-  //     console.log(info.response, "INFO RESPONSE");
-
-  //     res.json({
-  //       data: {
-  //         info: info.response,
-  //         order,
-  //       },
-  //     });
-  //   }
-  // });
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.json({
+        error,
+      });
+    } else {
+      console.log(info.response, "INFO RESPONSE");
+    }
+  });
 });
 
 // Get Single Order Details

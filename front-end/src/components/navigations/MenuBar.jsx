@@ -104,7 +104,7 @@ const MenuBar = () => {
                 <img
                   src={query?.data?.user?.avatar?.url}
                   alt="profile"
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full object-cover"
                 />
                 <div className="text-sm text-gray-700">
                   <p className="font-semibold">{query?.data?.user?.name}</p>
