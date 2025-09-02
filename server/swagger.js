@@ -25,16 +25,16 @@ const options = {
       },
     },
   },
-  apis: ["./routes/*.js"], // Caminho para suas rotas documentadas com JSDoc
+  apis: ["./routes/*.js"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
 
 function swaggerDocs(app, port) {
-  // Rota para visualizar a doc
+  // Route for view doc
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-  // Rota para acessar o JSON do swagger
+  // Route for access json
   app.get("/api-docs.json", (req, res) => {
     res.setHeader("Content-Type", "application/json");
     res.send(swaggerSpec);
