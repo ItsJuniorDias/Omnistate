@@ -1,7 +1,6 @@
 import React from "react";
 import "./About.css";
-import Gift from "../misc/Gift";
-import about_img from "../../images/about-image.png";
+
 import { useEffect } from "react";
 
 const About = () => {
@@ -11,14 +10,12 @@ const About = () => {
   return (
     <React.Fragment>
       <section className="about pt-16 px-6 mt-10 md:px-20">
-        {/* Título da página */}
         <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-12 text-center md:text-left">
           About Us
         </h1>
 
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-12">
-          {/* Texto */}
           <div className="flex-1 text-gray-700 text-base md:text-lg leading-relaxed">
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">
               How does TFOR work?
@@ -49,7 +46,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="flex flex-col lg:flex-row gap-12 mb-12">
           <div className="flex-1 text-gray-700 text-base md:text-lg leading-relaxed">
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">

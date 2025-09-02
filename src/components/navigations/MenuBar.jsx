@@ -80,19 +80,23 @@ const MenuBar = () => {
           )}
 
           <li>
-            <a href="/About" className="hover:text-blue-600 transition">
-              About
-            </a>
+            <Link to="/About">
+              <a className="hover:text-blue-600 transition">About</a>
+            </Link>
           </li>
+
           <li>
-            <a href="/MarketPlace" className="hover:text-blue-600 transition">
-              MarketPlace
-            </a>
+            <Link to="/MarketPlace">
+              <a className="hover:text-blue-600 transition">MarketPlace</a>
+            </Link>
           </li>
+
           <li>
-            <a href="/FAQ" className="hover:text-blue-600 transition">
-              FAQ
-            </a>
+            <Link to="/FAQ">
+              <a href="/FAQ" className="hover:text-blue-600 transition">
+                FAQ
+              </a>
+            </Link>
           </li>
 
           {!!query?.data ? (
