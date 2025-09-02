@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const serverless = require("serverless-http");
 
 const app = express();
 
@@ -53,4 +52,3 @@ if (process.env.NODE_ENV === "production") {
 }
 
 module.exports = app;
-module.exports.handler = serverless(app);
