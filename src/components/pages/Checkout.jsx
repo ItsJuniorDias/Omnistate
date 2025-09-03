@@ -20,7 +20,11 @@ export default function CheckoutScreen(props) {
 
   const { id } = useParams();
 
-  const { state } = useLocation();
+  const { state, pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   console.log(state, "PROPERTY");
 
