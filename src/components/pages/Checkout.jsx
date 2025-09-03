@@ -14,10 +14,6 @@ import { api } from "../../service/api";
 import { useQueryClient } from "@tanstack/react-query";
 
 export default function CheckoutScreen(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const { id } = useParams();
 
   const { state, pathname } = useLocation();
