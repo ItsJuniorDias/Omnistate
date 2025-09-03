@@ -16,11 +16,7 @@ import { useQueryClient } from "@tanstack/react-query";
 export default function CheckoutScreen(props) {
   const { id } = useParams();
 
-  const { state, pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  const { state } = useLocation();
 
   console.log(state, "PROPERTY");
 
@@ -31,6 +27,10 @@ export default function CheckoutScreen(props) {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   function generateRefCode() {
     const prefix = "#RC";
