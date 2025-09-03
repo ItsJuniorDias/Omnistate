@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   CardNumberElement,
@@ -28,8 +28,13 @@ export default function CheckoutScreen(props) {
   const elements = useElements();
   const [loading, setLoading] = useState(false);
 
+  const formRef = useRef(null);
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (formRef.current) {
+      const y = formRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: y - 120, behavior: "smooth" });
+    }
   }, []);
 
   function generateRefCode() {
@@ -149,45 +154,48 @@ export default function CheckoutScreen(props) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white mt-[120px] shadow-lg rounded-lg flex flex-col gap-4"
-    >
-      <label className="font-semibold">Card Number</label>
-      <div className="p-3 border border-gray-300 rounded">
-        <CardNumberElement
-          options={inputStyle}
-          onChange={(event) => {
-            if (event.error) {
-              console.log(event.error.message);
-            }
-            console.log("Card complete?", event.complete);
-          }}
-        />
-      </div>
-
-      <div className="flex gap-4">
-        <div className="flex-1">
-          <label className="font-semibold">Expiry</label>
-          <div className="p-3 border border-gray-300 rounded">
-            <CardExpiryElement options={inputStyle} />
-          </div>
-        </div>
-        <div className="flex-1">
-          <label className="font-semibold">CVC</label>
-          <div className="p-3 border border-gray-300 rounded">
-            <CardCvcElement options={inputStyle} />
-          </div>
-        </div>
-      </div>
-
-      <button
-        type="submit"
-        disabled={!stripe || loading}
-        className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:opacity-50"
+    <div className="pt-[120px]">
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col gap-4"
       >
-        {loading ? "Processing..." : "Pay"}
-      </button>
-    </form>
+        <label className="font-semibold">Card Number</label>
+        <div className="p-3 border border-gray-300 rounded">
+          <CardNumberElement
+            options={inputStyle}
+            onChange={(event) => {
+              if (event.error) {
+                console.log(event.error.message);
+              }
+              console.log("Card complete?", event.complete);
+            }}
+          />
+        </div>
+
+        <div className="flex gap-4">
+          <div className="flex-1">
+            <label className="font-semibold">Expiry</label>
+            <div className="p-3 border border-gray-300 rounded">
+              <CardExpiryElement options={inputStyle} />
+            </div>
+          </div>
+          <div className="flex-1">
+            <label className="font-semibold">CVC</label>
+            <div className="p-3 border border-gray-300 rounded">
+              <CardCvcElement options={inputStyle} />
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          disabled={!stripe || loading}
+          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:opacity-50"
+        >
+          {loading ? "Processing..." : "Pay"}
+        </button>
+      </form>
+    </div>
   );
 }
