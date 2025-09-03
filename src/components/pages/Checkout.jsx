@@ -32,7 +32,7 @@ export default function CheckoutScreen(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   function generateRefCode() {
     const prefix = "#RC";
@@ -85,10 +85,6 @@ export default function CheckoutScreen(props) {
 
         if (paymentIntent.status === "succeeded") {
           alert("Payment successful!");
-
-          const token = await localforage.getItem("@token");
-
-          console.log(token, "TOKEN");
 
           const response = await api.post(
             "/api/v1/order/new",
