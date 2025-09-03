@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   CardNumberElement,
@@ -29,6 +29,10 @@ export default function CheckoutScreen(props) {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   function generateRefCode() {
     const prefix = "#RC";
