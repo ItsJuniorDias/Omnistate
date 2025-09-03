@@ -18,7 +18,9 @@ export default function CheckoutScreen(props) {
 
   const { state } = useLocation();
 
-  // const { property } = state;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   console.log(state, "PROPERTY");
 
@@ -29,10 +31,6 @@ export default function CheckoutScreen(props) {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   function generateRefCode() {
     const prefix = "#RC";
