@@ -47,10 +47,6 @@ function App() {
     };
 
     fetchNFT();
-
-    const interval = setInterval(fetchNFT, 15000);
-
-    return () => clearInterval(interval);
   }, []);
 
   console.log(data, "DATA");
