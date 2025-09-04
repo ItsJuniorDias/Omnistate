@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import StripeProvider from "./context/StripeProvider";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -22,10 +21,40 @@ import "./App.css";
 import SingleProperty from "./components/pages/SingleProperty";
 import OrderPage from "./components/pages/Order";
 import LatestNews from "./components/pages/LatestNews";
+import axios from "axios";
 
 const queryClient = new QueryClient();
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchNFT = async () => {
+      try {
+        const response = await axios.post(
+          "https://omnistate.onrender.com/api/v1/nfts",
+          {
+            jsonrpc: "2.0",
+            method: "eth_blockNumber",
+            params: [],
+            id: 1,
+          }
+        );
+        setData(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      }
+    };
+
+    fetchNFT();
+
+    const interval = setInterval(fetchNFT, 15000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  console.log(data, "DATA");
+
   return (
     <div className="body-wrap">
       <QueryClientProvider client={queryClient}>

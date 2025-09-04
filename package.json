@@ -10,7 +10,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.8.0",
     "@hookform/resolvers": "^5.2.1",
+    "@metamask/sdk": "^0.33.0",
     "@sendgrid/mail": "^8.1.4",
     "@stripe/react-stripe-js": "^3.9.2",
     "@stripe/stripe-js": "^7.9.0",
@@ -31,6 +33,7 @@
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.1",
     "dotenv": "^16.4.7",
+    "ethers": "^6.15.0",
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
     "framer-motion": "^12.23.12",
