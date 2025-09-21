@@ -5,7 +5,8 @@ OmniState is an innovative platform for buying real estate with cryptocurrency, 
 ## Evidence
 
 
-https://github.com/user-attachments/assets/fb1244f2-c17b-4161-a9a7-14c7108475c8
+https://github.com/user-attachments/assets/743a6112-d829-4369-9bcd-cda4a9e0dac8
+
 
 
 
