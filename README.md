@@ -1,11 +1,23 @@
-# RoyalCity
+## OmniState
 
-**The real estate sector is changing rapidly as new technologies like cryptocurrencies and AR/VR are developed, it is important to understand how these technologies and existing real estate markets work.  Developing a responsive real estate platform, a digital housing marketplace, using ReactJS.**
+OmniState is an innovative platform for buying real estate with cryptocurrency, connecting buyers, sellers, and investors in a secure, transparent, and global environment.
 
-## What is RoyalCity?
+## Evidence
 
-**The proposed real estate platform - RoyalCity will serve as a digital marketplace where users can seamlessly browse, display, and purchase properties using advanced technologies such as Augmented Reality (AR) and Virtual Reality (VR), alongside Web3 capabilities. By integrating blockchain technology, the platform will ensure secure transactions and ownership verification. This innovative solution aims to revolutionize the real estate experience for buyers, sellers, and agents.**
 
-![alt text](public/building01.jpg)
-![alt text](public/building02.jpg)
-![alt text](public/building03.jpg)
+https://github.com/user-attachments/assets/fb1244f2-c17b-4161-a9a7-14c7108475c8
+
+
+
+## Production 
+
+`
+ https://omnistate.vercel.app/
+` 
+
+## Overview
+
+OmniState aims to simplify real estate purchases by leveraging the power of blockchain and cryptocurrencies.
+Users can explore properties worldwide, view prices in both fiat and crypto, and finalize purchases securely through smart contracts.
+
+Our mission: to reduce bureaucracy and open global access to real estate investing.
